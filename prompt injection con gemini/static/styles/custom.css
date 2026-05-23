@@ -1,0 +1,494 @@
+:root {
+
+  /* =========================
+     COLORES GENERALES
+     ========================= */
+
+  --brand-bg: #001f4d;
+  --brand-bg-2: #003b73;
+  --brand-fg: #ffffff;
+
+  --gold: #f4c542;
+  --gold-soft: #ffd95e;
+
+  --link: #f4c542;
+
+  --page-bg: #e9f2fb;
+  --card-bg: #ffffff;
+
+  --text-main: #0f172a;
+  --text-title: #002b5c;
+  --text-subtitle: #475569;
+
+  --muted: #64748b;
+  --border: #c7d6e6;
+
+  --bubble-user: #d7ecff;
+  --bubble-bot: #eef4fa;
+
+  --bubble-user-text: #0f172a;
+  --bubble-bot-text: #0f172a;
+
+  --input-bg: #ffffff;
+  --input-text: #0f172a;
+  --input-border: #cbd5e1;
+
+  --shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   MODO OSCURO
+   ========================= */
+
+[data-theme="dark"] {
+
+  --brand-bg: #0b1a2b;
+  --brand-bg-2: #003366;
+  --brand-fg: #f8fafc;
+
+  --gold: #f4c542;
+  --gold-soft: #ffd95e;
+
+  --link: #ffd86b;
+
+  --page-bg: #0f172a;
+  --card-bg: #111827;
+
+  --text-main: #f8fafc;
+  --text-title: #ffd95e;
+  --text-subtitle: #dbeafe;
+
+  --muted: #cbd5e1;
+  --border: #334155;
+
+  --bubble-user: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #1e40af
+  );
+
+  --bubble-bot: linear-gradient(
+    135deg,
+    #1e293b,
+    #334155
+  );
+
+  --bubble-user-text: #ffffff;
+  --bubble-bot-text: #f8fafc;
+
+  --input-bg: #1e293b;
+  --input-text: #ffffff;
+  --input-border: #475569;
+
+  --shadow: 0 10px 25px rgba(0,0,0,.45);
+}
+
+/* =========================
+   HTML / BODY
+   ========================= */
+
+html,
+body {
+  height: 100%;
+  background: var(--page-bg);
+}
+
+body {
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  margin: 0;
+
+  background: var(--page-bg);
+
+  color: var(--text-main);
+
+  transition:
+    background .3s ease,
+    color .3s ease;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+
+  background:
+    linear-gradient(
+      90deg,
+      #00142f 0%,
+      #002b5c 45%,
+      #003b73 100%
+    );
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 0.8rem 1.5rem;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.25);
+
+  border-bottom: 4px solid var(--gold);
+}
+
+header .left {
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+header img {
+
+  height: 64px;
+  width: auto;
+
+  object-fit: contain;
+
+  background: transparent;
+
+  border-radius: 12px;
+
+  padding: 4px;
+}
+
+.title-box h1 {
+
+  color: var(--gold-soft);
+
+  font-size: 1.15rem;
+
+  margin: 0;
+
+  line-height: 1.1;
+
+  font-weight: 700;
+}
+
+.title-box .muted {
+
+  color: #e5e7eb;
+
+  font-size: 0.85rem;
+}
+
+header h1 {
+
+  font-size: 1.05rem;
+
+  margin: 0;
+
+  line-height: 1.1;
+}
+
+header .right {
+
+  display: flex;
+  align-items: center;
+
+  gap: .5rem;
+}
+
+/* =========================
+   BOTÓN TEMA
+   ========================= */
+
+.theme-btn {
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  background: rgba(255,255,255,.08);
+
+  color: #ffffff;
+
+  padding: .45rem .8rem;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-size: .9rem;
+
+  transition: .2s ease;
+}
+
+.theme-btn:hover {
+
+  transform: translateY(-1px);
+
+  background: rgba(255,255,255,.16);
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+main {
+
+  flex: 1;
+
+  padding: 2rem 1rem;
+
+  max-width: 900px;
+
+  margin: auto;
+
+  width: 100%;
+}
+
+/* =========================
+   TITULOS
+   ========================= */
+
+.page-title {
+
+  text-align: center;
+
+  margin-bottom: .5rem;
+
+  color: var(--text-title);
+
+  font-weight: 700;
+}
+
+.page-subtitle {
+
+  text-align: center;
+
+  margin-top: 0;
+
+  color: var(--text-subtitle);
+
+  font-size: 1rem;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+
+  background-color: var(--brand-bg);
+
+  color: var(--brand-fg);
+
+  text-align: center;
+
+  padding: 1rem;
+
+  font-size: 0.9rem;
+
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+footer a {
+
+  color: var(--link);
+}
+
+a {
+
+  color: var(--link);
+}
+
+/* =========================
+   CHAT
+   ========================= */
+
+.chat {
+
+  height: 62vh;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 1.2rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--card-bg) 0%,
+      #f4f8fc 100%
+    );
+
+  box-shadow: var(--shadow);
+
+  transition:
+    background .3s ease,
+    border .3s ease;
+}
+
+/* CHAT OSCURO */
+
+[data-theme="dark"] .chat {
+
+  background:
+    linear-gradient(
+      180deg,
+      #0f172a 0%,
+      #111827 100%
+    );
+
+  border: 1px solid #334155;
+}
+
+/* =========================
+   MENSAJES
+   ========================= */
+
+.msg {
+
+  margin: .6rem 0;
+}
+
+.user {
+
+  text-align: right;
+}
+
+.bot {
+
+  text-align: left;
+}
+
+.bubble {
+
+  display: inline-block;
+
+  border-radius: 18px !important;
+
+  padding: .9rem 1rem !important;
+
+  max-width: 80%;
+
+  line-height: 1.45;
+
+  transition:
+    background .3s ease,
+    color .3s ease;
+}
+
+/* =========================
+   BURBUJAS LIGHT
+   ========================= */
+
+.user .bubble {
+
+  background:
+    linear-gradient(
+      135deg,
+      #d7ecff,
+      #b9defc
+    );
+
+  color: var(--bubble-user-text);
+}
+
+.bot .bubble {
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef4fa,
+      #dfeaf5
+    );
+
+  color: var(--bubble-bot-text);
+}
+
+/* =========================
+   BURBUJAS DARK
+   ========================= */
+
+[data-theme="dark"] .user .bubble {
+
+  background: var(--bubble-user);
+
+  color: var(--bubble-user-text);
+}
+
+[data-theme="dark"] .bot .bubble {
+
+  background: var(--bubble-bot);
+
+  color: var(--bubble-bot-text);
+}
+
+/* =========================
+   TEXTO MUTED
+   ========================= */
+
+.muted {
+
+  color: var(--muted);
+
+  font-size: .85rem;
+}
+
+/* =========================
+   INPUTS
+   ========================= */
+
+input {
+
+  background-color: var(--input-bg) !important;
+
+  color: var(--input-text) !important;
+
+  border: 1px solid var(--input-border) !important;
+
+  transition:
+    background .3s ease,
+    color .3s ease,
+    border .3s ease;
+}
+
+input::placeholder {
+
+  color: var(--muted) !important;
+}
+
+/* =========================
+   BOTÓN ENVIAR
+   ========================= */
+
+button[type="submit"] {
+
+  background:
+    linear-gradient(
+      90deg,
+      #002b5c,
+      #003f88
+    );
+
+  border: none;
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  border-radius: 14px;
+
+  transition: .2s ease;
+}
+
+button[type="submit"]:hover {
+
+  transform: translateY(-1px);
+
+  filter: brightness(1.05);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}USTA Tunja – Gemini QA Lab{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/custom.css') }}">
+  <style>
+    
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+<header> <!-- Header con logo, título y botón de tema -->
+  <div class="left">
+  <img src="{{ url_for('static', filename='img/ustatunja.png') }}" alt="Logo Universidad Santo Tomás Tunja" />
+
+  <div class="title-box">
+    <h1>USTA Cybersecurity QA Lab</h1>
+
+    <span class="muted">
+      Lab de Prompt Injection QA con Gemini
+    </span>
+  </div>
+  </div>
+  <div class="right">
+    <button id="themeToggle" class="theme-btn" aria-label="Cambiar tema">
+  ✨
+</button>
+  </div>
+</header> <!-- Fin del header -->
+
+<!-- Main: aquí se inyectará el contenido específico de cada página -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+<!-- Fin del main -->
+
+<!-- Footer con derechos de autor y enlace al sitio institucional -->
+<footer>
+  © {{ 2026 }}
+  Universidad Santo Tomás – Tunja ·
+  Ciberseguridad: Pruebas QA B/R/P Team ·
+
+  <a
+    href="https://www.santototunja.edu.co/"
+    target="_blank"
+    rel="noopener"
+  >
+    Sitio institucional
+  </a>
+</footer>
+<!-- Fin del footer -->
+
+<!-- Scripts: aquí se inyectarán los scripts específicos de cada página -->
+  {% block scripts %}
+  <script>
+    // ====== Control de tema con localStorage =======
+    (function() {
+      const root = document.documentElement;
+      const btn  = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme') || 'light';
+      root.setAttribute('data-theme', saved);
+
+      function toggle() {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      }
+      btn?.addEventListener('click', toggle);
+    })();
+  </script>
+<!-- Fin del script de control de tema -->  
+  {% endblock %}
+<!-- Fin de los scripts específicos de cada página -->  
+</body>
+</html>
