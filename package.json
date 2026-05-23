@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "PauuuSG23",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
