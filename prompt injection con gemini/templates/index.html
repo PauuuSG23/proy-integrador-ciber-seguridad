@@ -1,0 +1,37 @@
+<!--
+  Archivo: templates/index.html
+  Descripción: Plantilla HTML para la página principal del chat.-->
+
+<!-- el extends nos sirve para heredar 
+la estructura base definida en base.html, y 
+luego solo rellenar los bloques específicos como title, content y scripts. -->
+{% extends "base.html" %}
+
+<!-- tenemos un bloque title para personalizar el título de la página, que se muestra en la pestaña del navegador -->
+{% block title %}USTA Tunja – Gemini QA Lab{% endblock %}
+<!-- el bloque content es donde se define el contenido específico de esta página, que se inyectará en el main de base.html -->
+{% block content %}
+<h2 class="page-title">
+  Asistente Gemini Flash
+</h2>
+
+<p class="page-subtitle">
+  Prueba de concepto académica orientada a QA de seguridad,
+  análisis de prompts y evaluación de respuestas rápidas.
+</p>
+
+<!-- tenemos un div con id "chat" que es donde se mostrarán los mensajes de la conversación, y un formulario para enviar nuevos mensajes. -->
+  <div id="chat" class="chat"></div>
+<!-- tenemos un formulario con un input de texto para escribir el mensaje y un botón para enviarlo. --> 
+  <form id="form" style="margin-top:1rem;">
+    <div class="grid">
+      <input id="input" type="text" placeholder="Escribe tu mensaje..." required />
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,26 @@
+Sección sugerida para el informe: Evaluación de Prompt Injection (LLM01)
+
+Objetivo:
+Evaluar si un asistente basado en LLM puede ser manipulado mediante Prompt Injection y validar controles defensivos.
+
+Metodología:
+1) Se implementó una versión vulnerable sin controles de validación.
+2) Se implementó una versión endurecida con:
+   - filtro de patrones de inyección en entrada,
+   - delimitación explícita de datos del usuario,
+   - posfiltro de salida sensible.
+3) Se ejecutó una batería de prompts normales y maliciosos.
+4) Se exportaron resultados y métricas a CSV.
+
+Resultados esperados:
+- La versión vulnerable presenta mayor tasa de bypass en prompts maliciosos.
+- La versión endurecida bloquea intentos de override y mantiene funcionalidad en prompts legítimos.
+
+Impacto de negocio:
+Un Prompt Injection exitoso puede provocar salida fuera de políticas, exposición de información interna y degradación de confianza del servicio.
+
+Recomendaciones:
+- No incluir secretos en prompts de sistema.
+- Aplicar defensa en profundidad: pre-filtro + instrucciones robustas + post-filtro.
+- Agregar monitoreo de respuestas anómalas y registro de intentos.
+- Ejecutar retesteo periódico con nuevos payloads.
